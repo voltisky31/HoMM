@@ -90,11 +90,11 @@ int main()
 	bool done = false;
 	SDL_Event sdl_event;
 
-	//
 	int xtg, ytg; // x to go to, y to go to
-	int xtg_f, ytg_f;
 
-	// Lööps management
+	// int xtg_f, ytg_f; < Used for smooth movement which is disabled because it was not working well, maybe I'll make it work in the future
+
+	// Lööps management (some of them used for smooth movement which is disabled)
 	bool move = false;
 	bool mouse_move = false;
 	bool gf_run = true;
@@ -130,7 +130,7 @@ int main()
 	int x_tc = (y / cell_h);
 
 	// For ticks checker
-	unsigned int end = 0, start;
+	int end = 0, start;
 
 	unsigned char battleground[11][15] =
 					{
@@ -229,7 +229,7 @@ int main()
 				move = false;
 			}
 
-			// Grassfire
+			// Grassfire (kinda?)
 			while (gf_run == true && lock_rest == false)
 			{
 				gf_run = false;
@@ -279,7 +279,7 @@ int main()
 			//end = SDL_GetTicks();
 			//int delta = (end - start);
 
-			// Moving our "hero" to destination
+			// Moving our "hero" image to destination
 			if (start > end + wait)
 			{
 				if (battleground[x_tc][y_tc] < battleground[x_tc - 1][y_tc] && battleground[x_tc - 1][y_tc] != 255)
@@ -302,7 +302,7 @@ int main()
 					x = cell_w * (y_tc + 1) + (cell_w / 2);
 					y_tc += 1;
 				}
-				// Clearing table after alogrithm is complete
+				// Clearing battleground after alogrithm is complete
 				else if (battleground[x_tc][y_tc] == battleground[x_cell][y_cell])
 				{
 					for (int i = 0; i < b_rows; i++)
@@ -321,6 +321,8 @@ int main()
 				} end = start;
 			}
 
+
+			// Tried to make smooth movement between tiles but failed, albeit leaving code for future (maybe?)
 			/*if (move_finished == false)
 			{
 				lock_rest = true;
@@ -386,14 +388,6 @@ int main()
 	// Showing the screen to the player
 			SDL_RenderPresent(renderer);
 			// next frame...
-			for (int i = 0; i < b_rows; i++)
-			{
-				for (int j = 0; j < b_columns; j++)
-				{
-					printf("%d ", battleground[i][j]);
-				}printf("\n");
-			}
-			printf("\n");
 	}
 		
 
