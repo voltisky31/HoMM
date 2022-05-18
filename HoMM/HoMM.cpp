@@ -20,7 +20,7 @@ TODO:
 typedef unsigned char uchar;
 
 // Debug mode config
-int debug = 2; // 0 - none, 1 - on click, 2 - constant
+int debug = 0; // 0 - none, 1 - on click, 2 - constant
 
 // Screen resolution
 const int screenWidth = 1920;
