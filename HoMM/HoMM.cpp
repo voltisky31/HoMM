@@ -361,7 +361,7 @@ bool InitSDL(SDL_Renderer** renderer, SDL_Window** window)
 	}
 
 	result = IMG_Init(IMG_INIT_PNG); // Init of the Image SDL library. We only need to support PNG for this project
-	if (!(result & IMG_INIT_PNG)) // Chectavernkeep if the PNG decoder has started successfully
+	if (!(result & IMG_INIT_PNG)) // Checking if the PNG decoder has started successfully
 	{
 		printf("Can't initialize SDL image. Error: %s", SDL_GetError());
 		return -1;
