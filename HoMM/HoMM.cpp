@@ -13,7 +13,8 @@ Right Mouse Click - Reset / Skip tour  < Use if neccesary (program is still a li
 
 TODO:
 - Implement better pathfinding (this one does have some difficulties, especialy going form right to left)
-- Make so speed of characters is not dependent on FPS
+- Make that speed of characters is not dependent on FPS
+
 */
 
 typedef unsigned char uchar;
